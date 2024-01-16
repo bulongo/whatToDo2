@@ -1,0 +1,41 @@
+.topComponent {
+  color: #555;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: space-between;
+  // border: solid red;
+  // background: green;
+
+  .upper {
+    display: flex;
+    align-items: center;
+    // background: green;
+    justify-content: space-between;
+
+    .upperLeft {
+      // border: solid red;
+      min-width: 55%;
+      display: flex;
+      justify-content: space-between;
+
+      h2 {
+        min-width: 55%;
+        // border: solid green;
+        display: flex;
+        justify-content: space-around;
+        font-size: 2.3rem;
+        font-weight: 800;
+      }
+
+    }
+
+  }
+
+  .info {
+    // background: green;
+    width: 53%;
+    font-size: .8rem;
+  }
+}

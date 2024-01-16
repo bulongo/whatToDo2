@@ -1,0 +1,120 @@
+.addButtonOn {
+  background: rgba(40,40,40,.1);
+  backdrop-filter: blur(3px);
+  z-index: 99;
+  width: 90%;
+  height: 91vh;
+  position: absolute;
+  top:5.5rem;
+  left: 5.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s ease;
+  transform: scale(1);
+
+  .canvas1 {
+    // background: green;
+    z-index: -1;
+    position: absolute;
+    // border: solid green 1px;
+  }
+
+  p {
+    .dateCreated {
+      color: grey;
+      font-size: .9rem;
+    }
+  }
+
+  .formOn {
+    transition: .5s ease-in;
+    background: white;
+    border: none;
+    width: 80%;
+    height: 80%;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 4rem 0;
+    align-items: center;
+
+    .input {
+      outline: none;
+      height: 30px;
+      border: solid #eee 1px;
+      padding: 2rem .5rem;
+      width: 50%;
+    }
+
+    .addBtn {
+      width: 150px;
+      height: 50px;
+      border: none;
+      background: rgba(255,69,0,0.8);
+      cursor: pointer;
+      color: white;
+      transition: 0.2s ease;
+
+      &:hover {
+        background: rgba(255,69,0,0.9);
+        transition: 0.2s ease;
+      }
+    }
+  }
+}
+
+.addButtonOff {
+  // backdrop-filter: blur(3px);
+  // background: green;
+  opacity: 0;
+  z-index: -9;
+  transform: scale(1.15);
+  width: 89%;
+  height: 92vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top:4.9rem;
+  left: 6rem;
+  transition: .2s ease;
+
+  p {
+    .dateCreated {
+      color: grey;
+      font-size: .9rem;
+    }
+  }
+
+  .formOff {
+    // background: #fff;
+    background: #fff;
+    // border: none;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 4rem 0;
+    align-items: center;
+
+    .input {
+      outline: none;
+      height: 30px;
+      border: none;
+      width: 50%;
+      padding: 2rem .5rem;
+    }
+
+    .addBtn {
+      width: 150px;
+      height: 50px;
+      border: none;
+      background: rgba(255,69,0,0.8);
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
