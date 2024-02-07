@@ -1,5 +1,5 @@
 {
-  "name": "calender",
+  "name": "whattodo2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.0.4",
+    "next": "^14.0.4",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
@@ -18,5 +18,9 @@
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.0.4"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "author": "",
+  "license": "ISC"
 }

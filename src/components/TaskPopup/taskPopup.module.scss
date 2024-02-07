@@ -1,0 +1,149 @@
+.addButtonOn {
+  background: rgba(60, 60, 60, 0.35);
+  // background: green;
+  backdrop-filter: blur(3px);
+  z-index: 99;
+  width: 92%;
+  height: 91vh;
+  position: absolute;
+  top: 5.5rem;
+  left: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease;
+  transform: scale(1);
+
+  .canvas1 {
+    // background: green;
+    z-index: -1;
+    position: absolute;
+    // border: solid green 1px;
+    transition: 0.5s ease-in;
+  }
+
+  p {
+    .dateCreated {
+      color: grey;
+      font-size: 0.9rem;
+    }
+  }
+
+  .formOn {
+    transition: 0.35s ease-in;
+    background: white;
+    border: none;
+    width: 80%;
+    height: 80%;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 4rem 0;
+    align-items: center;
+    position: relative;
+    box-shadow: 0px 0px 12px 3px gray;
+
+    .input {
+      outline: none;
+      height: 30px;
+      border: none;
+      border-bottom: solid #eee 1px;
+      padding: 0 0 0.3rem 0;
+      width: 50%;
+      color: #555;
+    }
+
+    .addBtn {
+      width: 150px;
+      height: 50px;
+      border: none;
+      background: rgba(255, 69, 0, 0.8);
+      cursor: pointer;
+      color: white;
+      transition: 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 69, 0, 0.9);
+        transition: 0.2s ease;
+      }
+    }
+
+    .closeMenu {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      border-radius: 50px;
+      // border: solid orangered 1px;
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      background: rgba(259, 69, 0, 0.8);
+      color: white;
+      // box-shadow: 0px 0px 8px 0.5px orangered;
+      // transition: 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        background: rgba(259, 69, 0, 0.9);
+      }
+    }
+  }
+}
+
+.addButtonOff {
+  // backdrop-filter: blur(3px);
+  // background: green;
+  opacity: 0;
+  z-index: -9;
+  transform: scale(1.15);
+  width: 89%;
+  height: 92vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 4.9rem;
+  left: 6rem;
+  transition: 0.2s ease;
+
+  p {
+    .dateCreated {
+      color: grey;
+      font-size: 0.9rem;
+    }
+  }
+
+  .formOff {
+    // background: #fff;
+    background: #fff;
+    // border: none;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 4rem 0;
+    align-items: center;
+
+    .input {
+      outline: none;
+      height: 30px;
+      border: none;
+      width: 50%;
+      padding: 2rem 0.5rem;
+    }
+
+    .addBtn {
+      width: 150px;
+      height: 50px;
+      border: none;
+      background: rgba(255, 69, 0, 0.8);
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

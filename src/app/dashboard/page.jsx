@@ -7,10 +7,10 @@ const topComponentDetails = {
   title: "Dashboard",
   details: "Construction of standalone branch for the bank of 800 square meters are. Includes client meeting... Projects details",
   btnsClass: [],
-  middleIcons:[],
-  leftIcons:[],
-  middleIcons:[],
-  endItem:[]
+  middleIcons: [],
+  leftIcons: [],
+  middleIcons: [],
+  endItem: []
 }
 
 const dashboard = () => {
@@ -38,7 +38,6 @@ const dashboard = () => {
             <Activity />
             <Activity />
             <Activity />
-             <Activity />
             <Activity />
             <Activity />
             <Activity />
@@ -46,7 +45,8 @@ const dashboard = () => {
             <Activity />
             <Activity />
             <Activity />
-             <Activity />
+            <Activity />
+            <Activity />
             <Activity />
             <Activity />
             <Activity />
@@ -84,11 +84,11 @@ const dashboard = () => {
 
 
 const Activity = () => {
-  return(
+  return (
     <div className={styles.activity}>
       <div className={styles.activityLeft}>
         <span className={styles.icon}>i</span>
-      </div> 
+      </div>
       <div className={styles.activityRight}>
         <div className={styles.activityRight_top}>
           <h5>New Member</h5>
@@ -96,12 +96,12 @@ const Activity = () => {
         </div>
         <p>@mikeal.adamson...will be joining us</p>
       </div>
-    </div> 
+    </div>
   )
 }
 
 const Event = () => {
-  return(
+  return (
     <div className={styles.event}>
       <div className={styles.eventLeft}>
         <div className={styles.time}>11:00 - 11:30 AM</div>

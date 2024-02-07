@@ -1,25 +1,93 @@
+@keyframes ring {
+  0% {
+    border: none;
+    padding: 0;
+  }
+
+  50% {
+    border: solid orangered 1px;
+  }
+
+  100% {
+    border: none;
+  }
+}
+
 .middle {
   display: flex;
   height: 100%;
+  width: 100%;
   flex-direction: column;
-  // border: solid red;
   justify-content: space-between;
   font-size: 1.8rem;
 
   .icon {
+    border-left: solid transparent 7px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 80px;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    // transition: 0.2s ease-in-out;
     color: black;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 50%;
 
     &:hover {
-      transform: scale(1.2);
-      transition: 0.2s ease-in-out;
+      transition: 0.1s ease;
+      // background: rgba(259, 69, 0, 0.4);
+      background: #fff;
+      // border-left: solid rgba(259, 69, 0, 0.2) 7px;
+      box-shadow: inset 22px -9px 18px -19px #222222;
+
+      .title {
+        opacity: 1;
+        transform: translateX(5.5rem);
+        display: flex;
+        z-index: 200;
+      }
     }
   }
 
   .active {
+    border-left: solid orangered 7px;
+    // border-top: solid lightgray 1px;
+    // border-bottom: solid lightgray 1px;
     color: orangered;
+    background: rgba(259, 69, 0, 0.5);
+    // border-right: solid orangered 1px;
+    z-index: 110;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: inset 22px -9px 18px -19px #222222;
+    // transition: 0.2s ease;
+
+    &:hover {
+      background: rgba(259, 69, 0, 0.7);
+    }
+  }
+
+  .title {
+    // border: solid red;
+    transition: 0.2s ease-in-out;
+    transition-delay: z-index 2s;
+    position: absolute;
+    font-size: 0.7rem;
+    z-index: 200;
+    opacity: 0;
+    width: 100%;
+    height: 2rem;
+    text-transform: capitalize;
+    // border: solid orangered;
+    background: rgba(259, 69, 0, 0.9);
+    color: white;
+    // z-index: 10;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
   }
 }
-
-

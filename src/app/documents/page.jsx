@@ -1,17 +1,24 @@
-import TopComponent from "@/components/TopComponent/TopComponent"
-import styles from "./page.module.scss"
+import TopComponent from "@/components/TopComponent/TopComponent";
+import styles from "./page.module.scss";
 import { CiSearch } from "react-icons/ci";
-
 
 const topComponentDetails = {
   title: "Documents",
-  details: "All documents relating to the project are stored here. You will find updated documents or create new ones.",
+  details:
+    "All documents relating to the project are stored here. You will find updated documents or create new ones.",
   btnsClass: [],
-  middleClass:[styles.middle],
-  leftIcons:[],
-  middleIcons:[<CiSearch className={styles.icon}/>,<input type="text" className={styles.input}/>],
-  endItem:[<button className={styles.btn}>Create Document</button>]
-}
+  middleClass: [styles.middle],
+  leftIcons: [],
+  middleIcons: [
+    <CiSearch className={styles.icon} key={"documentsSearchIcon"} />,
+    <input type="text" className={styles.input} key={"documentsSearchBar"} />,
+  ],
+  endItem: [
+    <button className={styles.btn} key={"documentsButton"}>
+      Create Document
+    </button>,
+  ],
+};
 
 const documents = () => {
   return (
@@ -62,15 +69,14 @@ const documents = () => {
         </div>
       </div>
     </div>
-  )
-}
-
+  );
+};
 
 const Document = () => {
-  return(
+  return (
     <div className={styles.document}>
       <div>
-      <icon>icon</icon>
+        <span>icon</span>
         <h4>Meeting notes</h4>
         <p>7 items</p>
       </div>
@@ -80,7 +86,7 @@ const Document = () => {
       <div>7.0MB</div>
       <span>m</span>
     </div>
-  )
-}
+  );
+};
 
-export default documents
+export default documents;

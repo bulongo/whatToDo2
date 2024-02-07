@@ -5,13 +5,14 @@
   justify-content: space-between;
   align-items: center;
 
-  .left,.right{
+  .left,
+  .right {
     font-size: 2.5rem;
     /* border: solid red; */
     cursor: pointer;
   }
 
-  .left{
+  .left {
     transform: rotate(-90deg);
     transition: 0.2s ease;
 
@@ -28,8 +29,7 @@
     border-radius: 50%;
   }
 
-
-  .right{
+  .right {
     transform: rotate(90deg);
     transition: 0.2s ease;
 
@@ -49,7 +49,7 @@
 
 .addEvent {
   border: none;
-  width: 100px;
+  width: 130px;
   height: 35px;
   font-weight: 600;
   background: #222;
@@ -57,3 +57,19 @@
   cursor: pointer;
 }
 
+.todaysDate {
+  // border: solid red;
+  display: block;
+  margin-top: 1.5rem;
+
+  .today {
+    color: orangered;
+  }
+}
+
+.closeMenu {
+  border: solid red;
+  top: 0;
+  z-index: 100;
+  position: absolute;
+}

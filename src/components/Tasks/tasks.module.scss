@@ -1,15 +1,20 @@
 .taskCard {
   border: solid #ddd 1px;
-  // border-left: solid orangered 5px;
-  border-radius: 10px;
+  // border-radius: 10px;
+  border-radius: 3px;
   height: 18vh;
   display: flex;
   flex-direction: column;
   padding: 1rem;
   transition: 0.2s ease;
-  cursor: pointer;
+  cursor: grab;
+  user-select: none;
 
   &:hover {
+    // border-left: solid orangered 5px;
+    background: #202020;
+    // color: rgba(255, 109, 30, 0.9);
+    color: #999;
     transform: scale(1.1);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   }
@@ -17,9 +22,9 @@
 
 .taskBar {
   border: none;
-  border: solid rgba(255, 69, 0, .4) 1px;
+  border: solid rgba(255, 69, 0, 0.4) 1px;
   // border-top: none;
-  border-radius: 10px;
+  border-radius: 3px;
   height: 8vh;
   margin: 1rem 0;
   display: flex;
@@ -29,7 +34,19 @@
   // position: relative;
   transition: 0.1s ease;
   cursor: pointer;
-  color: black;
+  color: #555;
+
+  &:hover {
+    transform: translate(8px, 5px);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 7px;
+    border: none;
+    border-left: solid orangered 3px;
+    border-right: solid orangered 1px;
+    // background: rgba(250, 59, 0, 0.75);
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+  }
+
   // background: rgba(250, 69, 0, .1);
 
   .options {
@@ -39,16 +56,16 @@
     justify-content: space-around;
 
     span {
-      font-size: 0rem; 
+      font-size: 0rem;
     }
-  }  
+  }
 
-  &Selected{
+  &Selected {
     // border: solid #ddd 1px;
     border-left: solid orangered 5px;
-    border-bottom: solid rgba(255, 69, 0, .6) 1px;
+    border-bottom: solid rgba(255, 69, 0, 0.6) 1px;
     border-top: none;
-    border-radius: 10px;
+    border-radius: 3px;
     height: 12vh;
     margin: 1rem 0;
     display: flex;
@@ -58,8 +75,8 @@
     position: relative;
     transition: 0.1s ease;
     cursor: pointer;
-    transform: translate(5px,-5px);
-    box-shadow: rgba(255, 69, 0, .4) 0px 4px 12px;
+    transform: translate(5px, -5px);
+    box-shadow: rgba(255, 69, 0, 0.4) 0px 4px 12px;
 
     .selected {
       width: 15px;
@@ -79,7 +96,7 @@
         display: inline-block;
         width: 7px;
         height: 7px;
-        background: rgba(255, 69, 0, .7);
+        background: rgba(255, 69, 0, 0.7);
         border-radius: 50%;
       }
     }
@@ -91,25 +108,18 @@
       justify-content: space-around;
 
       span {
-        font-size: .9rem; 
+        font-size: 0.9rem;
         // width: 5rem;
-        padding: .3rem .6rem;
-        border-radius: 5px;
+        padding: 0.3rem 0.6rem;
+        border-radius: 2px;
         transition: 0.4s ease;
-         
+
         &:hover {
-          background: rgba(255, 69, 0, .9);
+          background: rgba(255, 69, 0, 0.9);
           transition: 0.4s ease;
         }
       }
     }
-  }
-
-  &:hover {
-    transform: translate(5px,-5px);
-    box-shadow: rgba(0, 0, 0, .3) 0px 4px 7px;
-    border: none;
-    background: rgba(250, 59, 0, .85);
   }
 
   .unSelected {
