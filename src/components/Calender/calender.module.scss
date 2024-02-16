@@ -5,7 +5,7 @@
   height: 85%;
   transform: scale(1);
   transition: 0.3s ease;
-  // background-color: var(--background-color);
+  // background-color: green;
   // background-size: cover;
   // background-repeat: no-repeat;
   // border-radius: 10px;
@@ -117,7 +117,56 @@
   padding: 1rem 0 4rem 0;
   margin-left: 0.5rem;
   // border: solid red;
+  // background: green;
   // grid-template-rows: 50% 50%;
+
+  .prev_month_day_cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    padding: 0.5em;
+    margin: 10px 6px;
+    // border: solid lightgray 1px;
+    cursor: pointer;
+    color: lightgray;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      border: solid rgba(242, 120, 75, 0.8) 1px;
+      color: rgba(242, 120, 75, 0.8);
+      transform: scale(1.05);
+      transition: 0.2s ease;
+      // border-radius: 50%;
+      // border: solid #bbb 1px;
+    }
+  }
+
+  .next_month_day_cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    padding: 0.5em;
+    margin: 10px 6px;
+    // border: solid lightgray 1px;
+    cursor: pointer;
+    color: lightgray;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      border: solid rgba(242, 120, 75, 0.8) 1px;
+      color: rgba(242, 120, 75, 0.8);
+      transform: scale(1.05);
+      transition: 0.2s ease;
+      // border-radius: 50%;
+      // border: solid #bbb 1px;
+    }
+  }
 
   .day_cell {
     background: white;

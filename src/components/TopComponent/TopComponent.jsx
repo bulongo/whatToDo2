@@ -14,7 +14,7 @@ const TopComponent = ({ topComponentDetails }) => {
   // the page and then reload those exact settings or whatever till they
   // explicity change them.
   // Or i could make the quotes go by day and not by screen load.
-  console.log(jokeNumber);
+  // console.log(jokeNumber);
 
   const {
     title,

@@ -30,6 +30,7 @@ const Calender = ({ optionsOpen }) => {
   const dateString1 = new Date(year, month, 1);
   const dateString2 = new Date(year, month + 1, 0);
   const dateString3 = new Date(year, month, 0);
+  // const dateString4 = new Date(year, month + 1,);
   const daysInMonth = [];
 
   // const {emitterData} = useEmitter()
@@ -68,6 +69,33 @@ const Calender = ({ optionsOpen }) => {
     day: "numeric",
   });
 
+  // const firstDayOfNextMonth = dateString4.toLocaleDateString("en-us", {
+  //   weekday: "long",
+  //   year: "numeric",
+  //   month: "numeric",
+  //   day: "numeric",
+  // });
+
+  const getLastPaddingDays = () => {
+    const lastWeekOfPrevMonth = [];
+    const veryLastDayNumber = lastDayOfPrevMonth.split(" ")[1].split("/")[1];
+    const veryLastDayName = lastDayOfPrevMonth.split(",")[0];
+    // console.log(veryLastDayName);
+    // console.log(lastDayOfPrevMonth);
+    const numberOfPaddingDays = daysOfWeek.indexOf(`${veryLastDayName}`);
+    const startOfLastWeekOfPrevMonth = Number(
+      veryLastDayNumber - numberOfPaddingDays,
+    );
+    for (let i = startOfLastWeekOfPrevMonth; i <= veryLastDayNumber; i++) {
+      lastWeekOfPrevMonth.push(i);
+    }
+    return lastWeekOfPrevMonth;
+  };
+
+  const lastWeekOfPrevMonth = getLastPaddingDays();
+
+  // find out what number the previous month was. e.g. Wednesday == 3
+
   const lastOfPrev = lastDayOfPrevMonth.split("/")[1];
   // used to get last day of previous month
 
@@ -76,6 +104,7 @@ const Calender = ({ optionsOpen }) => {
     daysOfWeek.length - (daysOfWeek.indexOf(lastDayOfMonth.split(", ")[0]) + 1);
 
   const daysAtEndOfMonth = new Date(year, month, -startPaddingDays);
+
   // used to get the days in the padding squares at end of last month
 
   const daysAtStartPadding = daysAtEndOfMonth.toLocaleDateString("en-us", {
@@ -92,24 +121,75 @@ const Calender = ({ optionsOpen }) => {
 
   for (let i = 1; i <= startPaddingDays + numberOfDaysinMonth; i++) {
     if (i > startPaddingDays) {
+      // const div = document.createElement("div")
       daysInMonth.push(i - startPaddingDays);
     } else {
-      daysInMonth.push("");
+      daysInMonth.push(lastWeekOfPrevMonth[i - 1]);
+      // No idea why this works but it works
     }
   }
 
-  // for(let i = prevEndPadding;i <=  lastDayOfMonth.split("/")[1];i++){
+  for (let i = 0; i <= endPaddingDays; i++) {
+    if (daysInMonth.length < 35) {
+      daysInMonth.push(i + 1);
+    }
+  }
+
+  const getFirstPaddingDays = () => {
+    // get the length of all the days in the array and subtract the number of
+    // starting padding days. that way you can render the starting days from there
+    const firstWeekOfNextMonth = [];
+    const veryLastDayNumber = lastDayOfMonth.split(" ")[1].split("/")[1];
+    const veryLastDayName = lastDayOfMonth.split(",")[0];
+
+    const newDays = [];
+    // for (let i = 0; i <= daysInMonth.length - 1; i++) {
+    // console.log("previous week");
+    // return null;
+    // } else {
+    // newDays.push(daysInMonth[i]);
+    // }
+    // }
+
+    // console.log(veryLastDayNumber);
+    const firstDaysOfNextMonth = daysInMonth.filter((dayInMonth, index) => {
+      if (index > lastWeekOfPrevMonth.length - 1 + Number(veryLastDayNumber)) {
+        return dayInMonth;
+      }
+    });
+
+    // const numberOfPaddingDays = daysInMonth.forEach((dayInMonth) => {
+    //   if (dayInMonth > lastDayOfMonth) {
+    //     console.log(dayInMonth);
+    //   }
+    // });
+    // console.log(daysInMonth);
+    // console.log(numberOfPaddingDays);
+    // for (let i = startOfLastWeekOfPrevMonth; i <= veryFirstDay; i++) {
+    //   lastWeekOfPrevMonth.push(i);
+    // }
+
+    return { firstDaysOfNextMonth, veryLastDayNumber };
+  };
+
+  const { firstDaysOfNextMonth, veryLastDayNumber } = getFirstPaddingDays();
+  // console.log(typeof veryLastDayNumber);
+  // console.log(firstDaysOfNextMonth);
+
+  // daysInMonth.map((dim, index) => {
+  //   console.log(dim, index);
+  // });
+
+  // if (daysInMonth[daysInMonth.length - 1] === numberOfDaysinMonth) {
+  //
+  //   for (let i = 1; i <= endPaddingDays; i++) {
+  //     daysInMonth.push(
+  //       <div className="padding_day" onClick={(e) => nextMonthDays(e)}>
+  //         {""}
+  //       </div>,
+  //     );
+  //   }
   // }
-
-  if (daysInMonth[daysInMonth.length - 1] === numberOfDaysinMonth) {
-    for (let i = 1; i <= endPaddingDays; i++) {
-      daysInMonth.push(
-        <div className="padding_day" onClick={(e) => nextMonthDays(e)}>
-          {""}
-        </div>,
-      );
-    }
-  }
 
   const openMenu = (e) => {
     if (burgerClass === "inactive_burger") {
@@ -205,16 +285,50 @@ const Calender = ({ optionsOpen }) => {
 
         <div className={styles.days}>
           {daysInMonth.map((dim, index) => {
-            return (
-              <div
-                className={day == dim ? styles.selected_cell : styles.day_cell}
-                key={index}
-                onClick={(e) => handleChangeDay(e)}
-              >
-                {/* {dataSet ? console.log(dataSet[index]) : console.log("nothing here")} */}
-                {dim}
-              </div>
-            );
+            if (lastWeekOfPrevMonth[index]) {
+              return (
+                <div
+                  className={
+                    day == dim
+                      ? styles.selected_cell
+                      : styles.prev_month_day_cell
+                  }
+                  key={index}
+                  onClick={(e) => handleChangeDay(e)}
+                >
+                  {dim}
+                </div>
+              );
+            } else if (
+              index >
+              lastWeekOfPrevMonth.length - 1 + Number(veryLastDayNumber)
+            ) {
+              return (
+                <div
+                  className={
+                    day == dim
+                      ? styles.selected_cell
+                      : styles.next_month_day_cell
+                  }
+                  key={index}
+                  onClick={(e) => handleChangeDay(e)}
+                >
+                  {dim}
+                </div>
+              );
+            } else {
+              return (
+                <div
+                  className={
+                    day == dim ? styles.selected_cell : styles.day_cell
+                  }
+                  key={index}
+                  onClick={(e) => handleChangeDay(e)}
+                >
+                  {dim}
+                </div>
+              );
+            }
           })}
         </div>
       </main>

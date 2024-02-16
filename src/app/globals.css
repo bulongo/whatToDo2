@@ -18,6 +18,8 @@
 
 .body {
   /* background: blue; */
+  /* border: solid rgba(0,0,0,0.9) 5px; */
+  border-left: none;
   height: 100vh;
   display: grid;
   grid-template-columns: 10% 90%;

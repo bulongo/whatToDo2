@@ -29,13 +29,13 @@ export const TaskBar = ({ task }) => {
     completeState,
     selectedState,
   } = task;
-  //to remember which tasks were selected even when we move to another page
+  // to remember which tasks were selected even when we move to another page
   const ref = useRef(0);
   const [taskSelected, setTaskSelected] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [menuState, setMenuState] = useState(false);
   // console.log(task.task)
-  //
+
   const handleSelect = () => {
     // when this is clicked we should bring up a menu to show options of what you can do to the tasks
     // console.log(ref.current)
