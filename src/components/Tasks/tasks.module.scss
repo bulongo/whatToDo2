@@ -91,6 +91,15 @@
       align-items: center;
       justify-content: center;
 
+      &.editMode {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur;
+        height: 88%;
+        top: 10vh;
+        width: 80%;
+        position: absolute;
+      }
+
       &:after {
         content: "";
         display: inline-block;
@@ -109,10 +118,12 @@
 
       span {
         font-size: 0.9rem;
-        // width: 5rem;
+        // width: 4rem;
         padding: 0.3rem 0.6rem;
         border-radius: 2px;
         transition: 0.4s ease;
+        // border: solid red;
+        z-index: 200;
 
         &:hover {
           background: rgba(255, 69, 0, 0.9);

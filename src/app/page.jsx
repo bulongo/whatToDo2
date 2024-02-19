@@ -130,7 +130,13 @@ const page = () => {
         <span className={styles.today}>Today</span> :{" "}
         {`${today} ${months[month]} ${year}`}
       </div>
-      <Calender optionsOpen={optionsOpen} />
+      <Calender
+        optionsOpen={optionsOpen}
+        monthNum={monthNum}
+        incMonth={incMonth}
+        decMonth={decMonth}
+        year={year}
+      />
     </div>
   );
 };

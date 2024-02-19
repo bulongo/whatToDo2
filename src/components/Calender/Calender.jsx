@@ -21,10 +21,10 @@ const daysOfWeek = [
 // make me swipable so we don't rely on arow buttons to move months
 // double click on day and it will expand and bring you the task adding menu
 
-const Calender = ({ optionsOpen }) => {
+const Calender = ({ optionsOpen, monthNum, incMonth, decMonth }) => {
   const [day, setDay] = useState(new Date().getDate());
   const [dayInWeek, setDayInWeek] = useState(new Date().getDay());
-  const [month, setMonth] = useState(new Date().getMonth());
+  const [month, setMonth] = useState(monthNum);
   const [year, setYear] = useState(new Date().getFullYear());
   const numberOfDaysinMonth = new Date(year, month + 1, 0).getDate();
   const dateString1 = new Date(year, month, 1);
@@ -32,6 +32,10 @@ const Calender = ({ optionsOpen }) => {
   const dateString3 = new Date(year, month, 0);
   // const dateString4 = new Date(year, month + 1,);
   const daysInMonth = [];
+
+  useEffect(() => {
+    setMonth(monthNum);
+  }, [monthNum]);
 
   // const {emitterData} = useEmitter()
   // no idea how to make it such that choosing a date will change the day
@@ -54,6 +58,8 @@ const Calender = ({ optionsOpen }) => {
     month: "numeric",
     day: "numeric",
   });
+
+  console.log(firstDayOfMonth);
 
   const lastDayOfMonth = dateString2.toLocaleDateString("en-us", {
     weekday: "long",
@@ -83,9 +89,12 @@ const Calender = ({ optionsOpen }) => {
     // console.log(veryLastDayName);
     // console.log(lastDayOfPrevMonth);
     const numberOfPaddingDays = daysOfWeek.indexOf(`${veryLastDayName}`);
+    // console.log(numberOfPaddingDays);
     const startOfLastWeekOfPrevMonth = Number(
       veryLastDayNumber - numberOfPaddingDays,
     );
+
+    console.log(startOfLastWeekOfPrevMonth);
     for (let i = startOfLastWeekOfPrevMonth; i <= veryLastDayNumber; i++) {
       lastWeekOfPrevMonth.push(i);
     }
@@ -191,18 +200,18 @@ const Calender = ({ optionsOpen }) => {
   //   }
   // }
 
-  const openMenu = (e) => {
-    if (burgerClass === "inactive_burger") {
-      setBurgerClass("active_burger");
-    } else {
-      setBurgerClass("inactive_burger");
-    }
-  };
-
-  const nextMonthDays = (e) => {
-    // setMonth(month + 1)
-    // e.target.classList.remove("day_cell")
-  };
+  // const openMenu = (e) => {
+  //   if (burgerClass === "inactive_burger") {
+  //     setBurgerClass("active_burger");
+  //   } else {
+  //     setBurgerClass("inactive_burger");
+  //   }
+  // };
+  //
+  // const nextMonthDays = (e) => {
+  //   // setMonth(month + 1)
+  //   // e.target.classList.remove("day_cell")
+  // };
 
   const handleChangeDay = (value) => {
     // Next time leave fucking documentation on how the function works nigga.
@@ -250,6 +259,7 @@ const Calender = ({ optionsOpen }) => {
       if (value.target.innerText !== "") {
         if (value.detail === 1) {
           setDay(Number(value.target.innerText));
+          // console.log(value.target);
         } else if (value.detail > 1) {
           setDay(Number(value.target.innerText));
           setFormOn(true);
@@ -266,11 +276,15 @@ const Calender = ({ optionsOpen }) => {
     }
   };
 
+  const handleChangeNextMonthDay = () => {
+    console.log("we have been chosen");
+  };
+
   return (
     <div
       className={optionsOpen ? styles.calenderWithOptionsOpen : styles.calender}
     >
-      <main>
+      <main className={styles.main}>
         {/* Maybe we should make the today (day) light up */}
         {/* Done with this task */}
         <div className={styles.weekdays}>
@@ -311,7 +325,7 @@ const Calender = ({ optionsOpen }) => {
                       : styles.next_month_day_cell
                   }
                   key={index}
-                  onClick={(e) => handleChangeDay(e)}
+                  onClick={(e) => handleChangeNextMonthDay(e)}
                 >
                   {dim}
                 </div>
@@ -320,7 +334,9 @@ const Calender = ({ optionsOpen }) => {
               return (
                 <div
                   className={
-                    day == dim ? styles.selected_cell : styles.day_cell
+                    day == dim
+                      ? `${styles.selected_cell} ${styles.thisMonth}`
+                      : styles.day_cell
                   }
                   key={index}
                   onClick={(e) => handleChangeDay(e)}

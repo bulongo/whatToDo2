@@ -38,7 +38,6 @@ export const TaskBar = ({ task }) => {
 
   const handleSelect = () => {
     // when this is clicked we should bring up a menu to show options of what you can do to the tasks
-    // console.log(ref.current)
     if (taskSelected == false) {
       setTaskSelected((prev) => {
         return !prev;
@@ -61,10 +60,9 @@ export const TaskBar = ({ task }) => {
   };
 
   const edit = (e) => {
-    console.log(e.target.innerText);
-    setEditMode((prev) => {
-      return !prev;
-    });
+    if (taskSelected == true) {
+      setEditMode(true);
+    }
   };
 
   const remove = (e) => {
@@ -79,7 +77,13 @@ export const TaskBar = ({ task }) => {
 
   return (
     <div
-      className={taskSelected ? styles.taskBarSelected : styles.taskBar}
+      className={
+        taskSelected
+          ? editMode
+            ? styles.editMode
+            : styles.taskBarSelecten
+          : styles.taskBar
+      }
       onClick={(e) => handleSelect(e)}
     >
       <div className={styles.topText}>
